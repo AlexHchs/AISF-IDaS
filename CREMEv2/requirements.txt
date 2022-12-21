@@ -1,0 +1,15 @@
+Django
+djangorestframework
+python-interface
+paramiko
+celery
+redis
+pandas
+python-dateutil
+scikit-learn
+xgboost
+matplotlib
+python-nmap
+multiprocess
+requests
+pymetasploit3

@@ -1,0 +1,27 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <script>
+            {% if messages %}
+                {% for message in messages %}
+                    alert('{{message}}')
+                {% endfor %}
+            {% endif %}
+        </script>
+    </head>
+
+    <body>
+        <div>
+            <h1><a href="/">IDaS UEs Setting</a></h1>
+            <h2>How many UEs do you need?</h2>
+            <form method="POST" class="post-form">
+                {% csrf_token %}         
+                {% for title, form in dict_forms.items %}
+                    {{ form.as_p }}
+                {% endfor %}
+                <button type="submit" class="save btn btn-default">Save</button>
+            </form>
+        </div>
+    </body>
+</html>
