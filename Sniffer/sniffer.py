@@ -12,7 +12,7 @@ from scapy.utils import wrpcap
 
 #--------------------------------------
 
-PCAP_OUTPUT_PATH = ""
+PCAP_OUTPUT_PATH = "traffic_collect"
 EXPIRED_UPDATE = 40
 MAX_PACKETS_IN_FLOW = 10000
 MAX_FLOW_DURATION = 120
@@ -167,7 +167,7 @@ def create_sniffer(input_file, input_interface=None):
             os.mkdir(PCAP_OUTPUT_PATH);
         return AsyncSniffer(offline=input_file, filter="ip and (tcp or udp)", prn=None, session=NewFlowSession, store=False,)
     else:
-        PCAP_OUTPUT_PATH = input_interface + time.strftime("-%Y-%m-%d")
+        
         if not os.path.isdir(PCAP_OUTPUT_PATH):
             os.mkdir(PCAP_OUTPUT_PATH);
         return AsyncSniffer(iface=input_interface, filter="ip and (tcp or udp)", prn=None, session=NewFlowSession, store=False,)
